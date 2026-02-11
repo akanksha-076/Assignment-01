@@ -1,0 +1,146 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI";
+}
+
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to left, #190653, #021e53);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+
+.title {
+  color: white;
+  margin-bottom: 30px;
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+}
+
+
+.container {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  max-width: 1100px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.box {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  flex: 1;
+}
+
+.sec{
+    flex: 1.5;
+}
+
+
+
+.box h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+
+input,
+select,
+textarea {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+
+button {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #770bd5;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #b05e05;
+}
+
+
+.controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.eventContainer {
+  color: #777;
+  font-size: 14px;
+}
+
+
+.dom-box {
+  width: 100%;
+  max-width: 1100px;
+}
+
+.dom-box input {
+  width: 100%;
+  margin-top: 10px;
+}
+.event-card{
+    background:white;
+    border:1px solid black;
+    border-radius:6px;
+    padding:10px;
+    margin-top:10px;
+    display: flex;
+    width: 250px;
+    height: 250px;
+    position: relative;
+}
+.delete-btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff5f5f;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
