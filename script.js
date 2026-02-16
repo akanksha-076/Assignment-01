@@ -30,7 +30,7 @@ function createEventCard(eventData){
     const card = document.createElement("div");
     card.classList.add("event-card");
     card.innerHTML=`
-    <button class=delete-btn>X</button>
+    <button class="delete-btn">X</button>
     <h3>${eventData.title}</h3>
     <div>${eventData.date}</div>
     <span>${eventData.category}</span>

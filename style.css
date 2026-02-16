@@ -144,3 +144,10 @@ button:hover {
     align-items: center;
     justify-content: center;
 }
+.evet-card h3{
+  display: flex;
+  margin-bottom: 8px;
+
+}
+
+  
