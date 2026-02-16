@@ -7,6 +7,7 @@ const eventDescription = document.getElementById("eventDescription");
 const clearAllBtn = document.getElementById("clearAllBtn");
 const addSampleBtn = document.getElementById("addSampleBtn");
 const eventContainer = document.getElementById("eventContainer");
+const key=document.getElementById("key");
 
 
 let sampleEvent =
@@ -68,4 +69,20 @@ eventForm.addEventListener("submit", (event) => {
 
 clearAllBtn.addEventListener("click",()=>{
     eventContainer.innerHTML=`<div class="empty-state">No events yet. Add your first event!</div></div>`
+})
+
+eventContainer.addEventListener("click",(event) =>{
+    if (event.target.classList.contains("delete-btn")) {
+        event.target.parentElement.remove();
+
+        if (eventContainer.children.length === 0) {
+            eventContainer.innerHTML = `<p id="emptyMsg">No events yet. Add your first event!</p>`;
+        }
+    }
+});
+
+document.addEventListener("keydown",(e)=>{
+    key.textContent="You Pressed :" + e.key;
+    
+
 })
