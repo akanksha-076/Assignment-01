@@ -1,9 +1,10 @@
 
 * {
+
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI";
+  font-family: "Segoe UI", sans-serif;
 }
 
 
@@ -43,8 +44,8 @@ body {
   flex: 1;
 }
 
-.sec{
-    flex: 1.5;
+.sec {
+  flex: 1.5;
 }
 
 
@@ -77,20 +78,25 @@ textarea {
   border: 1px solid #ccc;
   font-size: 14px;
   outline: none;
-  transition: 0.3s;
+  transition: border 0.3s;
 }
 
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #770bd5;
+}
 
 button {
   margin-top: 10px;
-  padding: 10px;
+  padding: 10px 16px;
   border: none;
   border-radius: 6px;
   background: #770bd5;
   color: white;
   font-weight: 500;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background 0.3s;
 }
 
 button:hover {
@@ -100,54 +106,123 @@ button:hover {
 
 .controls {
   display: flex;
-  gap: 15px;
+  gap: 10px;
   margin-bottom: 15px;
 }
 
-.eventContainer {
-  color: #777;
-  font-size: 14px;
+.controls button {
+  margin-top: 0;
+  font-size: 13px;
+  padding: 8px 14px;
 }
 
+/* ── Event Container & Cards ── */
+#eventContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
 
+.empty-state {
+  color: #999;
+  font-size: 14px;
+  padding: 10px 0;
+}
+
+.event-card {
+  background: #fff;
+  border: 1px solid #e0d7f5;
+  border-radius: 10px;
+  padding: 14px;
+  width: 210px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(119, 11, 213, 0.08);
+  transition: transform 0.2s;
+}
+
+.event-card:hover {
+  transform: translateY(-2px);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.card-header h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+  margin: 0;
+  flex: 1;
+  word-break: break-word;
+}
+
+.card-date {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+}
+
+.badge {
+  display: inline-block;
+  background: #ede9ff;
+  color: #5a0fa8;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.card-desc {
+  font-size: 13px;
+  color: #555;
+  margin: 0;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.delete-btn {
+  background: #ff5f5f;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-top: 0;
+  transition: background 0.2s;
+}
+
+.delete-btn:hover {
+  background: #cc0000;
+}
+
+/* ── DOM Box ── */
 .dom-box {
   width: 100%;
   max-width: 1100px;
 }
 
-.dom-box input {
-  width: 100%;
+#key {
   margin-top: 10px;
+  font-size: 15px;
+  color: #444;
+  background: #f4f0ff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #d5c6f5;
 }
-.event-card{
-    background:white;
-    border:1px solid black;
-    border-radius:6px;
-    padding:10px;
-    margin-top:10px;
-    display: flex;
-    width: 250px;
-    height: 250px;
-    position: relative;
-}
-.delete-btn{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #ff5f5f;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    color: #ffffff;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.evet-card h3{
-  display: flex;
-  margin-bottom: 8px;
-
-}
-
-  

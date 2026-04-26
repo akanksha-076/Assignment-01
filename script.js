@@ -1,88 +1,60 @@
-const eventForm = document.getElementById("eventForm");
+const form = document.getElementById("eventForm");
+const eventContainer = document.getElementById("eventContainer");
+const clearBtn = document.getElementById("clearAllBtn");
+const sampleBtn = document.getElementById("addSampleBtn");
+const keyDiv = document.getElementById("key");
 const eventTitle = document.getElementById("eventTitle");
 const eventDate = document.getElementById("eventDate");
 const eventCategory = document.getElementById("eventCategory");
 const eventDescription = document.getElementById("eventDescription");
 
-const clearAllBtn = document.getElementById("clearAllBtn");
-const addSampleBtn = document.getElementById("addSampleBtn");
-const eventContainer = document.getElementById("eventContainer");
-const key=document.getElementById("key");
+function addEvent(title, date, category, desc) {
+  const emptyState = eventContainer.querySelector(".empty-state");
+  if (emptyState) emptyState.remove();
 
-
-let sampleEvent =
-    [
-        {
-            title: "Web dev",
-            date: "4-12-2026",
-            category: "workshop",
-            description: "hasvhuno oadhoo asoikla dfoi"
-        },
-        {
-            title: "Web dev2",
-            date: "5-12-2026",
-            category: "conference",
-            description: "hasvhuno oadshdbf hoo asoikla dfoi"
-        }
-    ]
-
-//   create event card  
-function createEventCard(eventData){
-    const card = document.createElement("div");
-    card.classList.add("event-card");
-    card.innerHTML=`
-    <button class="delete-btn">X</button>
-    <h3>${eventData.title}</h3>
-    <div>${eventData.date}</div>
-    <span>${eventData.category}</span>
-    <p>${eventData.description}</p>
-    `
-    return card;
-
+  const card = document.createElement("div");
+  card.className = "event-card";
+  card.innerHTML = `
+    <div class="card-header">
+      <h3>${title}</h3>
+      <button class="delete-btn" title="Delete">&times;</button>
+    </div>
+    <p class="card-date">📅 ${date}</p>
+    <span class="badge">${category}</span>
+    <p class="card-desc">${desc}</p>
+  `;
+  eventContainer.appendChild(card);
 }
 
-function addEvent(eventData){
-  const emptyState=document.querySelector(".empty-state");
-  if(emptyState) emptyState.remove();
-
-  eventContainer.appendChild(createEventCard(eventData));
-
-}
-
-
-eventForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const eventData = {
-        title: eventTitle.value,
-        date: eventDate.value,
-        category: eventCategory.value,
-        description: eventDescription.value
-    }
-
-    addEvent(eventData);
-    eventForm.reset();
-
-})
-
-    
-
-
-clearAllBtn.addEventListener("click",()=>{
-    eventContainer.innerHTML=`<div class="empty-state">No events yet. Add your first event!</div></div>`
-})
-
-eventContainer.addEventListener("click",(event) =>{
-    if (event.target.classList.contains("delete-btn")) {
-        event.target.parentElement.remove();
-
-        if (eventContainer.children.length === 0) {
-            eventContainer.innerHTML = `<p id="emptyMsg">No events yet. Add your first event!</p>`;
-        }
-    }
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  addEvent(
+    eventTitle.value,
+    eventDate.value,
+    eventCategory.value,
+    eventDescription.value
+  );
+  form.reset();
 });
 
-document.addEventListener("keydown",(e)=>{
-    key.textContent="You Pressed :" + e.key;
-    
+sampleBtn.addEventListener("click", () => {
+  addEvent("Annual Dev Conference", "2026-02-15", "Conference", "Annual conference for developers worldwide.");
+  addEvent("JavaScript Workshop", "2026-02-20", "Workshop", "Hands-on JavaScript learning session.");
+});
 
-})
+eventContainer.addEventListener("click", (e) => {
+  if (e.target.classList.contains("delete-btn")) {
+    e.target.closest(".event-card").remove();
+    if (eventContainer.children.length === 0) {
+      eventContainer.innerHTML = `<div class="empty-state">No events yet. Add your first event!</div>`;
+    }
+  }
+});
+
+clearBtn.addEventListener("click", () => {
+  eventContainer.innerHTML = `<div class="empty-state">No events yet. Add your first event!</div>`;
+});
+
+document.addEventListener("keydown", (e) => {
+  keyDiv.textContent = "You pressed: " + e.key;
+});
